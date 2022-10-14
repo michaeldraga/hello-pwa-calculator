@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#242424" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- <script type="text/javascript" src="/scripts/worker.js"></script> -->
+
+    <title>hello calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>hello calulator</h1>
+      <div class="calculator">
+        <div class="display">0</div>
+        <div class="inputs">
+          <div class="keyboard">
+            <div class="button">1</div>
+            <div class="button">2</div>
+            <div class="button">3</div>
+            <div class="button">4</div>
+            <div class="button">5</div>
+            <div class="button">6</div>
+            <div class="button">7</div>
+            <div class="button">8</div>
+            <div class="button">9</div>
+            <div class="button">C</div>
+            <div class="button">0</div>
+            <div class="button">=</div>
+          </div>
+          <div class="operations">
+            <div class="button">+</div>
+            <div class="button">-</div>
+            <div class="button">*</div>
+            <div class="button">/</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      (function () {
+        console.log("trying to register service worker");
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker
+            .register("/scripts/worker.js", { scope: "/" })
+            .then((reg) => console.log("succeeded", reg))
+            .catch((error) => console.log("failed", error));
+        }
+      })();
+    </script>
+    <script src="/scripts/index.js"></script>
+  </body>
+</html>
